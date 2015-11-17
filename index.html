@@ -7,16 +7,24 @@
   <link rel="stylesheet" type="text/css" href="css/app.css">
   <body ng-app="listingApp">
     <section ng-controller="listingCtrl">
-       <div class="page-header">
+       <header class="page-header">
           <h1>{{title}}<small>definido en el controlador $scope</small></h1> 
-       </div>
+       </header>
        <div class="controls">
-         <input type="text" ng-model="filters.query" placeholder="Buscar Noticias">
-         <label for="sortBy">Ordenar por</label>
-         <select id="sortBy" ng-model="descending">
-            <option value="true">Lo primero</option>
-            <option value="false">Lo mas Antiguo</option> 
-         </select>
+        <div class="row">
+         <div class="col-md-7">
+            <input type="text" ng-model="filters.query" placeholder="Buscar Noticias" class="form-control">
+         </div>
+         <div class="col-md-2">
+          <label for="sortBy">Ordenar por</label>
+         </div>        
+         <div class="col-md-3">          
+            <select id="sortBy" ng-model="descending" class="form-control">
+             <option value="true">Lo primero</option>
+             <option value="false">Lo mas Antiguo</option> 
+            </select>
+         </div>
+       </div>
         <div class="clear">
           <div ng-repeat="tag in filters.tags" class="checkbox">
              <label for="{{tag.label}}">{{tag.label}}</label>
@@ -32,12 +40,14 @@
              <p>{{ article.description}}</p>            
           </li> 
        </ul>
-      <button class="btn" ng-click="viewMore(8)" ng-hide="viewLimit >= filtered.lenght"></button>
+      <button class="btn btn-primary" ng-click="viewMore(8)" ng-hide="viewLimit >= filtered.lenght"></button>
     </section>
     <section ng-controller="testCtrl">
       <h2>{{ dataFromRoot }}</h2>   
     </section>
     <script type="text/javascript" src="scripts/js/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/filters/listingFilters.js"></script>
+    <script type="text/javascript" src="scripts/services/listingServices.js"></script>
     <script type="text/javascript" src="scripts/modules/listing.js"></script>
     <script type="text/javascript" src="scripts/app.js"></script> 
   </body>

@@ -3,7 +3,7 @@ angular.module('listing.module',['listing.services','listing.filters'])
   $scope.title="Noticia Tecnológica";
   $scope.setData = function(data){     
      $scope.articles = data.articles;
-     console.log($scope.articles);  
+     console.log($scope.articles);    
   }
 
   data.get('scripts/data/articles.js',$scope.setData);
@@ -16,17 +16,16 @@ angular.module('listing.module',['listing.services','listing.filters'])
     query:"",
     tags:[
       {
-       label:"tag1",
-       selected:false
-
+        label:"tag1",
+        selected:false
       },
       {
-      label:"tag2",
-      selected:false        
+        label:"tag2",
+        selected:false        
       },
       {
-       label:"tag3",
-       selected:false	
+        label:"tag3",
+        selected:false	
       },
       {
       	label:"tag4",
